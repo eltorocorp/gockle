@@ -30,6 +30,9 @@ type Session interface {
 	// Close closes the Session.
 	Close()
 
+	// Query generates a new query object for interacting witht the database.
+	Query(string, ...interface{}) Query
+
 	// Columns returns a map from column names to types for keyspace and table.
 	// Schema changes during a session are not reflected; you must open a new
 	// Session to observe them.
